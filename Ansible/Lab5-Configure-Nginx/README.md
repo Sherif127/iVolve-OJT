@@ -19,12 +19,12 @@ Use Ansible to automate:
 ---
 
 ## 📁 Folder Structure
-
+```bash
 ansible-lab/
 ├── hosts.ini
 ├── nginx_playbook.yml
 └── index.html
-
+```
 
 ---
 
