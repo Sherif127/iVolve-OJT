@@ -1,0 +1,28 @@
+---
+- name: Install and start NGINX on managed node
+  hosts: web
+  become: true
+
+  tasks:
+    - name: Install NGINX
+      package:
+        name: nginx
+        state: present
+
+    - name: Deploy custom NGINX web page
+      copy:
+        src:  ~/index.html
+        dest: /usr/share/nginx/html/index.html
+      notify: restart nginx
+
+    - name: Start and enable NGINX
+      service:
+        name: nginx
+        state: started
+        enabled: true
+
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted

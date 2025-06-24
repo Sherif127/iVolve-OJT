@@ -1,0 +1,22 @@
+---
+- name: Get latest stable kubectl version
+  shell: |
+    curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt
+  register: kubectl_version
+  changed_when: false
+
+- name: Download kubectl binary
+  get_url:
+    url: "https://dl.k8s.io/release/{{ kubectl_version.stdout }}/bin/linux/amd64/kubectl"
+    dest: /usr/local/bin/kubectl
+    mode: '0755'
+
+- name: Verify kubectl version
+  command: kubectl version --client=true
+  register: kubectl_output
+  changed_when: false
+
+- name: Show kubectl version
+  debug:
+    var: kubectl_output.stdout
+

@@ -1,0 +1,9 @@
+---
+- name: Configure Managed Node
+  hosts: web
+  become: true
+
+  roles:
+    - docker
+    - kubectl
+    - jenkins
