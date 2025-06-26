@@ -47,7 +47,6 @@ Lab8-Dynamic-Inventory/
 
 ## ✅ Result
 [My Web Page]
-http://<public-ip>
 
 ![Image](https://github.com/user-attachments/assets/eca971b7-4213-49e1-b6c3-2ee9d290b2ba)
 
