@@ -1,0 +1,30 @@
+---
+- name: Configure Apache Web Server on EC2 instance tagged "ivolve"
+  hosts: tag_ivolve
+  become: true
+
+  tasks:
+
+    - name: Install Apache (httpd)
+      ansible.builtin.yum:
+        name: httpd
+        state: present
+
+    - name: Ensure Apache is started and enabled
+      ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: yes
+
+    - name: Deploy custom index.html
+      ansible.builtin.copy:
+        src: index.html
+        dest: /var/www/html/index.html
+        owner: root
+        group: root
+        mode: '0644'
+        
+    - name: Show the public IP of the instance
+      debug:
+        msg: "Apache successfully deployed on host with public IP: {{ ansible_host }}"
+
