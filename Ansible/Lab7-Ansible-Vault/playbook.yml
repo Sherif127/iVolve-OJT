@@ -1,0 +1,73 @@
+- name: Setup MySQL
+  hosts: web
+  become: true
+  vars_files:
+    - secret.yml
+  collections:
+    - community.mysql
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install MySQL server
+      apt:
+        name: mysql-server
+        state: present
+
+    - name: Install pip3
+      apt:
+        name: python3-pip
+        state: present
+
+    - name: Install PyMySQL
+      apt:
+        name: python3-pymysql
+        state: present
+        update_cache: yes
+
+    - name: Ensure MySQL is running
+      service:
+        name: mysql
+        state: started
+        enabled: yes
+
+    - name: Set root password
+      community.mysql.mysql_user:
+        name: root
+        host: localhost
+        password: "{{ db_pass }}"
+        login_unix_socket: /run/mysqld/mysqld.sock
+        check_implicit_admin: yes
+        priv: "*.*:ALL,GRANT"
+
+    - name: Create ivolve database
+      community.mysql.mysql_db:
+        name: ivolve
+        state: present
+        login_user: root
+        login_password: "{{ db_pass }}"
+
+    - name: Create MySQL user
+      community.mysql.mysql_user:
+        name: "{{ db_user }}"
+        password: "{{ db_pass }}"
+        priv: "ivolve.*:ALL"
+        host: "%"
+        state: present
+        login_user: root
+        login_password: "{{ db_pass }}"
+
+    - name: Allow remote access
+      lineinfile:
+        path: /etc/mysql/mysql.conf.d/mysqld.cnf
+        regexp: '^bind-address'
+        line: 'bind-address = 0.0.0.0'
+      notify: Restart MySQL
+
+  handlers:
+    - name: Restart MySQL
+      service:
+        name: mysql
+        state: restarted
