@@ -20,18 +20,6 @@ cd Docker-1
 
 **Dockerfile (Docker-1):**
 
-```Dockerfile
-FROM maven:3.9.10-eclipse-temurin-17
-
-WORKDIR /app
-
-COPY . .
-
-RUN mvn package
-
-CMD ["java", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]
-```
-
 ![Image](https://github.com/user-attachments/assets/6e1a3147-603b-4ae5-9f61-2a5345d6bde3)
 
 ---
@@ -73,16 +61,6 @@ mvn package
 ### ✅ 5. Create Lightweight Dockerfile (Alpine + Prebuilt Jar)
 
 **Dockerfile (Docker-1.2):**
-
-```Dockerfile
-FROM eclipse-temurin:17-jdk-alpine
-
-WORKDIR /app
-
-COPY . .
-
-CMD ["java", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]
-```
 
 ![Image](https://github.com/user-attachments/assets/e99c047b-29b5-40ae-ae00-3bea08bc019d)
 ---
