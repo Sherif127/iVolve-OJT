@@ -96,7 +96,6 @@ docker push <your-username>/test-img:v1
 ---
 
 ## 📄 Output
-- JSON vulnerability report: [test_img_output.json](Docker/Lab17-Scan-Docker-Image-with-Trivy/Docker-1/test_img_output.json)
-
+- JSON vulnerability report: [View JSON Report](https://github.com/Sherif127/iVolve-OJT/blob/main/Docker/Lab17-Scan-Docker-Image-with-Trivy/Docker-1/test_img_output.json)
 
 ---
