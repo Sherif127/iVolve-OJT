@@ -1,0 +1,12 @@
+{
+  "name": "postgres-node-app",
+  "version": "1.0.0",
+  "description": "Simple Node.js app to test PostgreSQL connection",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "dependencies": {
+    "pg": "^8.11.3"
+  }
+}
