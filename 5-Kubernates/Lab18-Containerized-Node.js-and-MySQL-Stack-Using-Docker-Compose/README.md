@@ -7,7 +7,7 @@ Containerize a full-stack Node.js application with a MySQL backend using **Docke
 
 ## 🗂️ Project Structure
 
-.
+```bash
 ├── Dockerfile
 ├── db.js
 ├── docker-compose.yml
@@ -17,6 +17,7 @@ Containerize a full-stack Node.js application with a MySQL backend using **Docke
 │ └── index.html
 ├── package.json
 └── server.js
+```
 
 ---
 
