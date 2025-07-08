@@ -50,7 +50,7 @@ spec:
             - key: kubernetes.io/hostname
               operator: In
               values:
-                - worker-node1  # ← Replace with your actual node name
+                - node1  
 ```
 
 Apply the PV:
