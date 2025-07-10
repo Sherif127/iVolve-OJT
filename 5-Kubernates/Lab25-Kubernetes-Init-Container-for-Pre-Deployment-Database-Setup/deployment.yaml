@@ -1,0 +1,89 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-app
+  namespace: ivolve
+  labels:
+    app: nodejs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nodejs
+  template:
+    metadata:
+      labels:
+        app: nodejs
+    spec:
+      initContainers:
+        - name: init-mysql-db
+          image: mysql:5.7
+          env:
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-config
+                  key: DB_HOST
+            - name: DB_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-config
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: DB_PASSWORD
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: MYSQL_ROOT_PASSWORD
+command:
+  - /bin/sh
+  - -c
+  - |
+    echo "Waiting for MySQL to be ready..."
+    until mysql -h"$DB_HOST" -uroot -p"$MYSQL_ROOT_PASSWORD" -e "SELECT 1"; do
+      echo "Waiting for MySQL..."
+      sleep 5
+    done
+
+    mysql -h"$DB_HOST" -uroot -p"$MYSQL_ROOT_PASSWORD" -e "CREATE DATABASE IF NOT EXISTS ivolve;"
+    mysql -h"$DB_HOST" -uroot -p"$MYSQL_ROOT_PASSWORD" -e "CREATE USER IF NOT EXISTS '${DB_USER}'@'%' IDENTIFIED BY '${DB_PASSWORD}';"
+    mysql -h"$DB_HOST" -uroot -p"$MYSQL_ROOT_PASSWORD" -e "GRANT ALL PRIVILEGES ON ivolve.* TO '${DB_USER}'@'%';"
+    mysql -h"$DB_HOST" -uroot -p"$MYSQL_ROOT_PASSWORD" -e "FLUSH PRIVILEGES;"
+
+      containers:
+      - name: nodejs
+        image: leoughhh/k8s-app:v1.2
+        ports:
+        - containerPort: 3000
+        env:
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: mysql-config
+              key: DB_HOST
+        - name: DB_USER
+          valueFrom:
+            configMapKeyRef:
+              name: mysql-config
+              key: DB_USER
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: DB_PASSWORD
+        volumeMounts:
+        - name: app-logs-pv
+          mountPath: /app/logs
+      tolerations:
+      - key: "workload"
+        operator: "Equal"
+        value: "app"
+        effect: "NoSchedule"
+      volumes:
+      - name: app-logs-pv
+        persistentVolumeClaim:
+          claimName: app-logs-pvc
