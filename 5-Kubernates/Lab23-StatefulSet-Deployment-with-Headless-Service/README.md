@@ -48,7 +48,7 @@ Custom `StorageClass` named `ebs-static-sc` configured for AWS EBS with:
 
 ### 📦 4. StatefulSet with PVC
 
-- Uses `mariadb:10.11` image.
+- Uses `mysql:5.7` image.
 - Mounts volume at `/var/lib/mysql`.
 - Secret is mounted as environment variable for root password.
 - Includes toleration for `workload-database:NoSchedule`.
