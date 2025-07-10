@@ -29,9 +29,8 @@
 
 ### ✅ Deployment
 
-```yaml
-[Deployment.yaml](5-Kubernates/Lab24-Node.js-Application-Deployment-with-ClusterIP-service/deplyoment.yaml)
-```
+- [Deployment.yaml](https://github.com/Sherif127/iVolve-OJT/blob/8d523068f8a2c607b6aefebf36650a877011686f/5-Kubernates/Lab24-Node.js-Application-Deployment-with-ClusterIP-service/deplyoment.yaml)
+
 Apply it:
 
 ```bash
@@ -50,7 +49,7 @@ kubectl apply -f deployment.yaml
 ### ✅ Service
 
 
-[svc.yaml](5-Kubernates/Lab24-Node.js-Application-Deployment-with-ClusterIP-service/svc.yaml)
+- [svc.yaml](https://github.com/Sherif127/iVolve-OJT/blob/8d523068f8a2c607b6aefebf36650a877011686f/5-Kubernates/Lab24-Node.js-Application-Deployment-with-ClusterIP-service/svc.yaml)
 
 🌐 Get ClusterIP Service
 

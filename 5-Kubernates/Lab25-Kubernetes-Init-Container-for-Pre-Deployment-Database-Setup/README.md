@@ -44,7 +44,8 @@
 ## 🧱 Kubernetes Deployment
 
 
-[deployment.yaml](5-Kubernates/Lab25-Kubernetes-Init-Container-for-Pre-Deployment-Database-Setup/deployment.yaml)
+- [Deployment.yaml](https://github.com/Sherif127/iVolve-OJT/blob/8d523068f8a2c607b6aefebf36650a877011686f/5-Kubernates/Lab25-Kubernetes-Init-Container-for-Pre-Deployment-Database-Setup/deployment.yaml)
+
 
 ---
 
