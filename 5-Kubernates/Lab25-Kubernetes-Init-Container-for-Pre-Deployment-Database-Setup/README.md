@@ -53,7 +53,7 @@
 
 ### 🔍 Logs
 ```bash
-kubectl logs <nodejs-pod-name> -c init-mysql-db -n ivolve
+kubectl logs -n ivolve -l app=nodejs
 ```
 📋 Application Logs
 <img width="677" height="182" alt="Image" src="https://github.com/user-attachments/assets/b5f53921-e203-456d-a0d6-42370deedeb2" />
