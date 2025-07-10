@@ -15,12 +15,11 @@ Deploy a **MySQL StatefulSet** using a **Headless Service** in a dedicated names
 
 ```bash
 .
-├── 1-namespace.yaml
-├── 2-secret.yaml
-├── 3-storage-class.yaml
-├── 4-pvc.yaml
-├── 5-statefulset.yaml
-├── 6-headless-service.yaml
+├── secret.yaml
+├── storage-class.yaml
+├── pvc.yaml
+├── statefulset.yaml
+├── svc.yaml
 └── README.md
 ```
 
