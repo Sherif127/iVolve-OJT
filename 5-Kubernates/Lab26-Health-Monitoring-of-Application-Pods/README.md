@@ -53,7 +53,7 @@ kubectl apply -f deployment.yaml
 kubectl rollout status deployment/nodejs-app -n ivolve
 ```
 
-####📸 Screenshot:
+#### 📸 Screenshot:
 
 <img width="1000" height="144" alt="Image" src="https://github.com/user-attachments/assets/80ee873a-8bba-46dc-835e-3bfdb3d58e86" />
 
@@ -65,7 +65,7 @@ kubectl rollout status deployment/nodejs-app -n ivolve
 kubectl describe pod <pod-name> -n ivolve
 ```
 
-####📸 Screenshot:
+#### 📸 Screenshot:
 
 <img width="1028" height="47" alt="Image" src="https://github.com/user-attachments/assets/943c8ca5-eb5f-4041-aed0-ac6c51034646" />
 

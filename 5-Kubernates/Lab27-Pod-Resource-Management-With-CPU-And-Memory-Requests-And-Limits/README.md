@@ -56,7 +56,7 @@ Look for:
 - Limits: `cpu: 2`, `memory: 2Gi`
 - Requests: `cpu: 1`, `memory: 1Gi`
 
-####📸 Screenshot:
+#### 📸 Screenshot:
 
 <img width="1226" height="384" alt="Image" src="https://github.com/user-attachments/assets/26ec37b7-b79c-4331-b8e1-cc17ff78210d" />
 
@@ -74,7 +74,7 @@ NAME                          CPU(cores)   MEMORY(bytes)
 nodejs-app-xxx                1m           21Mi
 ```
 
-####📸 Screenshot:
+#### 📸 Screenshot:
 
 <img width="616" height="106" alt="Image" src="https://github.com/user-attachments/assets/d9411d9a-f5c8-4c7d-a3b1-4d8ef584f468" />
 
