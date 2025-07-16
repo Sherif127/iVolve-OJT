@@ -1,0 +1,26 @@
+
+alertmanager:
+  enabled: true
+  persistentVolume:
+    enabled: false
+
+nodeExporter:
+  enabled: true
+
+pushgateway:
+  enabled: true
+
+server:
+  enabled: true
+  persistentVolume:
+    enabled: false  
+  service:
+    type: NodePort   
+    nodePort: 30090  
+  resources:
+    requests:
+      cpu: 100m
+      memory: 150Mi
+    limits:
+      cpu: 200m
+      memory: 300Mi
