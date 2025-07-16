@@ -90,7 +90,7 @@ kubectl apply -f daemonset.yaml
 kubectl get pods -n monitoring -o wide
 ```
 #### 📸: 
-        <img width="1096" height="125" alt="Image" src="https://github.com/user-attachments/assets/83ca9c76-604c-4146-a373-5b16d23b566e" />
+   <img width="1096" height="125" alt="Image" src="https://github.com/user-attachments/assets/83ca9c76-604c-4146-a373-5b16d23b566e" />
 ### 3. Verify Metrics Exposure
 
 run:
@@ -100,7 +100,7 @@ curl http://<NODE-IP>:9100/metrics
 ```
 ✅ You should see a long list of Prometheus-formatted metrics like this.  
 #### 📸: 
-        <img width="1915" height="1022" alt="Image" src="https://github.com/user-attachments/assets/976256ce-847f-4fbe-a2d0-d6a40523a744" />
+   <img width="1915" height="1022" alt="Image" src="https://github.com/user-attachments/assets/976256ce-847f-4fbe-a2d0-d6a40523a744" />
 
 ### 4. Deploy Prometheus via Helm
 
@@ -141,7 +141,7 @@ helm repo update
 helm install prometheus prometheus-community/prometheus -f prometheus-values.yaml -n monitoring
 ```
 #### 📸 :
-             <img width="761" height="686" alt="Image" src="https://github.com/user-attachments/assets/01683633-56d7-42fa-96e3-0762ed41b8e5" />
+  <img width="761" height="686" alt="Image" src="https://github.com/user-attachments/assets/01683633-56d7-42fa-96e3-0762ed41b8e5" />
 
 ### 5. Expose Prometheus via NodePort
 
@@ -152,7 +152,7 @@ kubectl get svc -n monitoring | grep prometheus
 ```
 
 #### 📸 :                   
-             <img width="1014" height="141" alt="Image" src="https://github.com/user-attachments/assets/0da6b045-ca4a-4595-bb4d-f4430b8ad3f1" />
+   <img width="1014" height="141" alt="Image" src="https://github.com/user-attachments/assets/0da6b045-ca4a-4595-bb4d-f4430b8ad3f1" />
 
 Access Prometheus UI:  
 ```
